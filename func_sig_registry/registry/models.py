@@ -106,6 +106,7 @@ class Signature(models.Model):
 
     @classmethod
     def import_from_solidity_file(cls, file_obj):
+        file_obj.seek(0)
         code = force_text(file_obj.read())
         return cls.import_from_solidity_code(code)
 
@@ -219,6 +220,7 @@ class EventSignature(models.Model):
 
     @classmethod
     def import_from_solidity_file(cls, file_obj):
+        file_obj.seek(0)
         code = force_text(file_obj.read())
         return cls.import_from_solidity_code(code)
 
